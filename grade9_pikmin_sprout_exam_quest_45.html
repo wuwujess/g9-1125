@@ -1,0 +1,2162 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>森林小芽精靈探險隊：九年級 Unit 3–4 段考文法 × 單字闖關</title>
+  <style>
+    :root {
+      --bg-sky: #e0f7fa;
+      --bg-meadow: #dcfce7;
+      --card: #fffdf7;
+      --card-soft: #f0fdf4;
+      --border: #bbf7d0;
+      --border-warm: #fde68a;
+      --text: #1e293b;
+      --text-muted: #64748b;
+      --leaf-green: #16a34a;
+      --leaf-bright: #22c55e;
+      --sprout-red: #f43f5e;
+      --water-blue: #0ea5e9;
+      --sun-yellow: #f59e0b;
+      --soil-brown: #92400e;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", system-ui, -apple-system, sans-serif;
+    }
+
+    body {
+      background: linear-gradient(160deg, #e0f2fe 0%, #dcfce7 50%, #fef9c3 100%);
+      color: var(--text);
+      min-height: 100vh;
+      line-height: 1.6;
+      padding: 16px;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    /* Floating Pollen Particles */
+    .pollen-bg {
+      position: fixed;
+      inset: 0;
+      pointer-events: none;
+      z-index: 0;
+      overflow: hidden;
+    }
+
+    .pollen {
+      position: absolute;
+      width: 10px;
+      height: 10px;
+      background: radial-gradient(circle, rgba(250, 204, 21, 0.7), rgba(250, 204, 21, 0));
+      border-radius: 50%;
+      animation: floatPollen 12s infinite ease-in-out;
+    }
+
+    @keyframes floatPollen {
+      0%, 100% { transform: translateY(0) translateX(0); opacity: 0.4; }
+      50% { transform: translateY(-28px) translateX(18px); opacity: 0.95; }
+    }
+
+    .container {
+      max-width: 1140px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Header */
+    header {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      background: rgba(255, 253, 247, 0.94);
+      backdrop-filter: blur(8px);
+      border: 2px solid #86efac;
+      border-radius: 22px;
+      padding: 14px 22px;
+      margin-bottom: 20px;
+      box-shadow: 0 8px 22px rgba(22, 163, 74, 0.12);
+    }
+
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-badge {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #fff;
+      font-weight: 800;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      box-shadow: 0 3px 10px rgba(34, 197, 94, 0.3);
+    }
+
+    .brand h1 {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #14532d;
+      letter-spacing: 0.3px;
+    }
+
+    .stats-bar {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+    }
+
+    .stat-pill {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      padding: 6px 14px;
+      border-radius: 999px;
+      font-size: 0.9rem;
+      font-weight: 800;
+      color: #166534;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .stat-pill span.val {
+      color: #d97706;
+      font-size: 1.05rem;
+    }
+
+    .stat-pill.streak {
+      background: #fff1f2;
+      border-color: #fda4af;
+      color: #9f1239;
+    }
+
+    .stat-pill.streak span.val {
+      color: #e11d48;
+    }
+
+    /* Layout Grid */
+    .main-grid {
+      display: grid;
+      grid-template-columns: 315px 1fr;
+      gap: 20px;
+      align-items: start;
+    }
+
+    @media (max-width: 880px) {
+      .main-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    /* Sprout Companion Sidebar */
+    .companion-card {
+      background: linear-gradient(180deg, #fffdf7 0%, #f0fdf4 100%);
+      border: 2px solid #86efac;
+      border-radius: 26px;
+      padding: 20px;
+      text-align: center;
+      box-shadow: 0 10px 26px rgba(22, 163, 74, 0.14);
+      position: sticky;
+      top: 16px;
+    }
+
+    .companion-stage-tag {
+      display: inline-block;
+      background: #dcfce7;
+      color: #15803d;
+      border: 1.5px solid #4ade80;
+      font-size: 0.8rem;
+      font-weight: 800;
+      padding: 3px 14px;
+      border-radius: 999px;
+      margin-bottom: 10px;
+    }
+
+    .companion-svg-wrap {
+      width: 200px;
+      height: 200px;
+      margin: 4px auto 10px;
+      background: radial-gradient(circle, rgba(254, 240, 138, 0.65) 0%, rgba(187, 247, 208, 0.25) 55%, rgba(255, 255, 255, 0) 74%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      animation: gentleBob 3.2s ease-in-out infinite;
+    }
+
+    @keyframes gentleBob {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-6px); }
+    }
+
+    .companion-svg-wrap.evolve-pop {
+      animation: popSprout 0.8s ease;
+    }
+
+    @keyframes popSprout {
+      0% { transform: scale(0.75) rotate(-6deg); }
+      45% { transform: scale(1.15) rotate(6deg); }
+      75% { transform: scale(0.96) rotate(-2deg); }
+      100% { transform: scale(1) rotate(0); }
+    }
+
+    .companion-name {
+      font-size: 1.2rem;
+      font-weight: 900;
+      color: #14532d;
+      margin-bottom: 4px;
+    }
+
+    .companion-desc {
+      font-size: 0.85rem;
+      color: #475569;
+      margin-bottom: 14px;
+      min-height: 44px;
+    }
+
+    .evo-progress-box {
+      background: #ffffff;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 12px;
+      text-align: left;
+    }
+
+    .evo-progress-header {
+      display: flex;
+      justify-content: space-between;
+      font-size: 0.78rem;
+      color: #166534;
+      margin-bottom: 6px;
+      font-weight: 700;
+    }
+
+    .progress-track {
+      width: 100%;
+      height: 11px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      overflow: hidden;
+    }
+
+    .progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #4ade80, #22c55e, #facc15);
+      width: 0%;
+      transition: width 0.45s ease;
+      border-radius: 999px;
+    }
+
+    .evo-tiers {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 10px;
+      font-size: 0.7rem;
+      color: #94a3b8;
+      font-weight: 600;
+    }
+
+    .evo-tiers span.active {
+      color: #15803d;
+      font-weight: 900;
+    }
+
+    /* Game Card */
+    .game-card {
+      background: var(--card);
+      border: 2px solid #86efac;
+      border-radius: 26px;
+      padding: 26px;
+      box-shadow: 0 10px 26px rgba(22, 163, 74, 0.12);
+      min-height: 510px;
+    }
+
+    /* Start Screen */
+    .start-screen {
+      text-align: center;
+      padding: 8px 4px;
+    }
+
+    .start-screen h2 {
+      font-size: 1.78rem;
+      font-weight: 900;
+      margin-bottom: 10px;
+      color: #14532d;
+    }
+
+    .start-screen p.lead {
+      color: #334155;
+      max-width: 640px;
+      margin: 0 auto 16px;
+      font-size: 0.98rem;
+    }
+
+    .scope-chips {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 7px;
+      margin-bottom: 20px;
+    }
+
+    .s-chip {
+      background: #dcfce7;
+      border: 1px solid #4ade80;
+      color: #166534;
+      font-size: 0.8rem;
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-weight: 700;
+    }
+
+    .s-chip.vocab {
+      background: #fef3c7;
+      border-color: #fbbf24;
+      color: #92400e;
+    }
+
+    .name-input-group {
+      max-width: 390px;
+      margin: 0 auto 20px;
+      text-align: left;
+    }
+
+    .name-input-group label {
+      display: block;
+      font-size: 0.88rem;
+      font-weight: 800;
+      color: #166534;
+      margin-bottom: 6px;
+    }
+
+    .name-input-group input {
+      width: 100%;
+      padding: 11px 15px;
+      border-radius: 14px;
+      border: 2px solid #86efac;
+      background: #f8fafc;
+      color: var(--text);
+      font-size: 1rem;
+      font-weight: 600;
+      outline: none;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+
+    .name-input-group input:focus {
+      border-color: #16a34a;
+      box-shadow: 0 0 0 3px rgba(34, 197, 94, 0.2);
+    }
+
+    .stage-preview-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      margin-bottom: 24px;
+      text-align: left;
+    }
+
+    @media (max-width: 640px) {
+      .stage-preview-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+
+    .stage-box {
+      background: #f0fdf4;
+      border: 1.5px solid #bbf7d0;
+      border-radius: 16px;
+      padding: 14px;
+    }
+
+    .stage-box h4 {
+      color: #15803d;
+      font-size: 0.94rem;
+      font-weight: 800;
+      margin-bottom: 4px;
+    }
+
+    .stage-box p {
+      font-size: 0.82rem;
+      color: #475569;
+    }
+
+    /* Buttons */
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 12px 26px;
+      border-radius: 999px;
+      font-size: 1rem;
+      font-weight: 800;
+      border: none;
+      cursor: pointer;
+      transition: all 0.2s ease;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, #22c55e, #15803d);
+      color: #fff;
+      box-shadow: 0 5px 15px rgba(22, 163, 74, 0.3);
+    }
+
+    .btn-primary:hover:not(:disabled) {
+      transform: translateY(-2px);
+      filter: brightness(1.06);
+    }
+
+    .btn-secondary {
+      background: #f1f5f9;
+      color: #334155;
+      border: 1.5px solid #cbd5e1;
+    }
+
+    .btn-secondary:hover:not(:disabled) {
+      background: #e2e8f0;
+    }
+
+    .btn:disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+      transform: none;
+    }
+
+    /* Quiz Top Meta */
+    .quiz-meta {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      padding-bottom: 14px;
+      border-bottom: 1.5px solid #dcfce7;
+      margin-bottom: 18px;
+    }
+
+    .level-pill {
+      padding: 4px 13px;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 800;
+    }
+
+    .lvl-1 { background: #dcfce7; color: #15803d; border: 1px solid #4ade80; }
+    .lvl-2 { background: #e0f2fe; color: #0369a1; border: 1px solid #38bdf8; }
+    .lvl-3 { background: #fef3c7; color: #b45309; border: 1px solid #fbbf24; }
+
+    .topic-tag {
+      font-size: 0.82rem;
+      color: #334155;
+      background: #f8fafc;
+      padding: 4px 12px;
+      border-radius: 999px;
+      border: 1px solid #cbd5e1;
+      font-weight: 700;
+    }
+
+    .q-counter {
+      font-size: 0.92rem;
+      font-weight: 800;
+      color: #166534;
+    }
+
+    .q-progress-bar {
+      width: 100%;
+      height: 8px;
+      background: #e2e8f0;
+      border-radius: 999px;
+      margin-bottom: 20px;
+      overflow: hidden;
+    }
+
+    .q-progress-fill {
+      height: 100%;
+      background: linear-gradient(90deg, #22c55e, #facc15);
+      transition: width 0.3s ease;
+    }
+
+    /* Question Prompt */
+    .q-type-label {
+      font-size: 0.84rem;
+      font-weight: 800;
+      letter-spacing: 0.5px;
+      color: #d97706;
+      margin-bottom: 6px;
+    }
+
+    .q-prompt {
+      font-size: 1.24rem;
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 10px;
+    }
+
+    .q-subhint {
+      font-size: 0.91rem;
+      color: #1e3a8a;
+      background: #eff6ff;
+      padding: 10px 14px;
+      border-radius: 12px;
+      border-left: 4px solid #38bdf8;
+      margin-bottom: 18px;
+      font-weight: 500;
+    }
+
+    /* Multiple Choice */
+    .options-list {
+      display: grid;
+      gap: 11px;
+    }
+
+    .option-btn {
+      width: 100%;
+      text-align: left;
+      background: #ffffff;
+      border: 2px solid #cbd5e1;
+      color: #1e293b;
+      padding: 13px 18px;
+      border-radius: 16px;
+      font-size: 1.03rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: all 0.18s ease;
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .option-btn:hover:not(:disabled) {
+      border-color: #22c55e;
+      background: #f0fdf4;
+      transform: translateX(3px);
+    }
+
+    .option-letter {
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      background: #e2e8f0;
+      color: #334155;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.86rem;
+      font-weight: 900;
+      flex-shrink: 0;
+    }
+
+    .option-btn.correct {
+      border-color: #16a34a;
+      background: #dcfce7;
+      color: #14532d;
+    }
+
+    .option-btn.correct .option-letter {
+      background: #16a34a;
+      color: #fff;
+    }
+
+    .option-btn.wrong {
+      border-color: #e11d48;
+      background: #ffe4e6;
+      color: #881337;
+    }
+
+    .option-btn.wrong .option-letter {
+      background: #e11d48;
+      color: #fff;
+    }
+
+    /* Word Tiles Reorder */
+    .sentence-slot {
+      min-height: 64px;
+      background: #f8fafc;
+      border: 2px dashed #94a3b8;
+      border-radius: 16px;
+      padding: 12px;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .sentence-slot.has-words {
+      border-style: solid;
+      border-color: #22c55e;
+      background: #f0fdf4;
+    }
+
+    .slot-placeholder {
+      color: #64748b;
+      font-size: 0.92rem;
+    }
+
+    .word-bank {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-bottom: 16px;
+    }
+
+    .word-tile {
+      background: #ffffff;
+      border: 2px solid #86efac;
+      color: #14532d;
+      padding: 8px 15px;
+      border-radius: 12px;
+      font-size: 1rem;
+      font-weight: 800;
+      cursor: pointer;
+      transition: all 0.15s ease;
+      user-select: none;
+      box-shadow: 0 2px 6px rgba(22, 163, 74, 0.08);
+    }
+
+    .word-tile:hover:not(:disabled) {
+      border-color: #16a34a;
+      background: #dcfce7;
+      transform: translateY(-2px);
+    }
+
+    .word-tile.used {
+      opacity: 0.3;
+      cursor: default;
+      transform: none;
+    }
+
+    .word-tile.in-slot {
+      background: #22c55e;
+      color: #ffffff;
+      border-color: #15803d;
+    }
+
+    /* Fill in the blank */
+    .fill-box {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      align-items: center;
+      margin-bottom: 14px;
+    }
+
+    .fill-input {
+      flex: 1;
+      min-width: 220px;
+      padding: 13px 16px;
+      font-size: 1.08rem;
+      font-weight: 700;
+      border-radius: 14px;
+      border: 2px solid #86efac;
+      background: #ffffff;
+      color: var(--text);
+      outline: none;
+    }
+
+    .fill-input:focus {
+      border-color: #16a34a;
+    }
+
+    /* Feedback Box */
+    .feedback-box {
+      margin-top: 18px;
+      padding: 16px 18px;
+      border-radius: 16px;
+      display: none;
+      animation: fadeIn 0.25s ease;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(6px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .feedback-box.show {
+      display: block;
+    }
+
+    .feedback-box.ok {
+      background: #dcfce7;
+      border: 2px solid #4ade80;
+    }
+
+    .feedback-box.bad {
+      background: #ffe4e6;
+      border: 2px solid #fda4af;
+    }
+
+    .feedback-title {
+      font-weight: 900;
+      font-size: 1.06rem;
+      margin-bottom: 6px;
+    }
+
+    .feedback-box.ok .feedback-title { color: #15803d; }
+    .feedback-box.bad .feedback-title { color: #be123c; }
+
+    .feedback-ans {
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 6px;
+    }
+
+    .feedback-exp {
+      font-size: 0.93rem;
+      color: #334155;
+    }
+
+    .action-row {
+      margin-top: 18px;
+      display: flex;
+      justify-content: flex-end;
+      gap: 10px;
+    }
+
+    /* Checkpoint / Stage Clear View */
+    .checkpoint-view, .result-view {
+      text-align: center;
+      padding: 10px 6px;
+    }
+
+    .checkpoint-banner {
+      display: inline-block;
+      background: linear-gradient(90deg, #f59e0b, #f43f5e);
+      color: #fff;
+      font-weight: 900;
+      padding: 5px 18px;
+      border-radius: 999px;
+      font-size: 0.86rem;
+      margin-bottom: 12px;
+      box-shadow: 0 4px 12px rgba(244, 63, 94, 0.25);
+    }
+
+    .checkpoint-svg {
+      width: 225px;
+      height: 225px;
+      margin: 8px auto 12px;
+      background: radial-gradient(circle, rgba(254, 240, 138, 0.85), rgba(187, 247, 208, 0.35) 60%, rgba(255, 255, 255, 0) 75%);
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .summary-stats {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 540px;
+      margin: 18px auto 22px;
+    }
+
+    .sum-item {
+      background: #f0fdf4;
+      border: 1.5px solid #86efac;
+      border-radius: 16px;
+      padding: 12px;
+    }
+
+    .sum-item .num {
+      font-size: 1.5rem;
+      font-weight: 900;
+      color: #15803d;
+    }
+
+    .sum-item .lbl {
+      font-size: 0.82rem;
+      color: #475569;
+      font-weight: 700;
+    }
+
+    /* Review List */
+    .review-section {
+      text-align: left;
+      margin-top: 24px;
+      border-top: 2px dashed #bbf7d0;
+      padding-top: 18px;
+    }
+
+    .review-section h3 {
+      font-size: 1.12rem;
+      margin-bottom: 12px;
+      color: #b45309;
+    }
+
+    .review-item {
+      background: #ffffff;
+      border: 1.5px solid #fecdd3;
+      border-left: 5px solid #f43f5e;
+      border-radius: 14px;
+      padding: 13px 16px;
+      margin-bottom: 10px;
+      font-size: 0.92rem;
+    }
+
+    .review-item .r-q {
+      font-weight: 800;
+      color: #0f172a;
+      margin-bottom: 4px;
+    }
+
+    .review-item .r-a {
+      color: #15803d;
+      font-weight: 800;
+    }
+
+    .review-item .r-e {
+      color: #475569;
+      margin-top: 4px;
+      font-size: 0.86rem;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+  </style>
+</head>
+<body>
+  <!-- Decorative Floating Pollen -->
+  <div class="pollen-bg">
+    <div class="pollen" style="top:15%; left:10%; animation-delay:0s;"></div>
+    <div class="pollen" style="top:35%; left:85%; animation-delay:2s;"></div>
+    <div class="pollen" style="top:70%; left:20%; animation-delay:4s;"></div>
+    <div class="pollen" style="top:80%; left:75%; animation-delay:1.5s;"></div>
+    <div class="pollen" style="top:25%; left:55%; animation-delay:3.5s;"></div>
+  </div>
+
+  <div class="container">
+    <!-- Top Header -->
+    <header>
+      <div class="brand">
+        <span class="brand-badge">🌱 九年級段考花園探險</span>
+        <h1>森林小芽精靈探險隊：Unit 3–4 文法 × 單字闖關 (45題)</h1>
+      </div>
+      <div class="stats-bar">
+        <div class="stat-pill">☀️ 陽光露水：<span class="val" id="scoreDisplay">0</span></div>
+        <div class="stat-pill streak">🌸 連勝花瓣：<span class="val" id="streakDisplay">0</span></div>
+        <div class="stat-pill">🌿 探險進度：<span class="val" id="progressText">0 / 45</span></div>
+      </div>
+    </header>
+
+    <div class="main-grid">
+      <!-- Left Sidebar: Real-Time Evolving Pikmin-Style Sprout Companion -->
+      <aside class="companion-card">
+        <div class="companion-stage-tag" id="companionStageTag">小芽成長度 LV.1 / 5</div>
+        <div class="companion-svg-wrap" id="companionSvgContainer"></div>
+        <div class="companion-name" id="companionName">LV.1 沉睡種子球</div>
+        <div class="companion-desc" id="companionDesc">埋在暖暖花盆裡的小種子，答題收集 110 滴陽光露水就會發芽喔！</div>
+
+        <div class="evo-progress-box">
+          <div class="evo-progress-header">
+            <span>🌼 開花成長條</span>
+            <span id="nextEvoText">距離發芽：110 露水</span>
+          </div>
+          <div class="progress-track">
+            <div class="progress-fill" id="evoProgressFill"></div>
+          </div>
+          <div class="evo-tiers" id="evoTiersList">
+            <span class="active">種子</span>
+            <span>嫩葉芽</span>
+            <span>花苞藍</span>
+            <span>向日黃</span>
+            <span>彩虹隊</span>
+          </div>
+        </div>
+      </aside>
+
+      <!-- Right Main Area -->
+      <main class="game-card">
+        <!-- 1. Start Screen -->
+        <section id="startScreen" class="start-screen">
+          <h2>歡迎來到陽光文法花園！培育你的小芽探險隊 🌱</h2>
+          <p class="lead">
+            每答對一題就能收集<strong>陽光露水</strong>，讓你的森林小芽從沉睡種子一路長出嫩葉、結出花苞、盛開小花，最後召集整支小精靈探險隊！全卷共 <strong>45 道分層題目</strong>，陪你輕鬆拿下九年級段考高分。
+          </p>
+
+          <div class="scope-chips">
+            <span class="s-chip">被動語態（各時態 / 助動詞 / 感官使役）</span>
+            <span class="s-chip">間接問句（wh- 疑問詞 / whether &amp; if）</span>
+            <span class="s-chip">文法回鍋（現在完成式 / 授與 / 不定詞動名詞 / 連接詞 / 比較級）</span>
+            <span class="s-chip vocab">Unit 3–4 精選單字（6題）</span>
+          </div>
+
+          <div class="name-input-group">
+            <label for="playerNameInput">輸入探險隊長的名字（會顯示在關卡結算與畢業圖鑑上）：</label>
+            <input type="text" id="playerNameInput" placeholder="例如：903 林小晴 / Alex" maxlength="20" />
+          </div>
+
+          <div class="stage-preview-grid">
+            <div class="stage-box">
+              <h4>🌱 第一關：陽光草地 (1–15題)</h4>
+              <p>現在/過去式被動語態、基礎 wh- 間接問句、Unit 3–4 基礎單字與授與/連綴回鍋。</p>
+            </div>
+            <div class="stage-box">
+              <h4>🌷 第二關：微風花叢 (16–30題)</h4>
+              <p>未來/完成/助動詞被動、whether/if 問句、Unit 3–4 情境單字與完成式/連接詞回鍋。</p>
+            </div>
+            <div class="stage-box">
+              <h4>🌻 第三關：彩虹樹洞 (31–45題)</h4>
+              <p>雙賓/進行式/感官被動、who當主詞與介系詞後 whether、比較級/條件句綜合陷阱。</p>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="startBtn">🌱 播下種子，開始第一關！</button>
+        </section>
+
+        <!-- 2. Active Quiz Screen -->
+        <section id="quizScreen" class="hidden">
+          <div class="quiz-meta">
+            <div style="display:flex; gap:8px; align-items:center; flex-wrap:wrap;">
+              <span class="level-pill lvl-1" id="levelPill">第一關：陽光草地</span>
+              <span class="topic-tag" id="topicTag">被動語態</span>
+            </div>
+            <span class="q-counter" id="qCounter">第 1 / 45 題</span>
+          </div>
+
+          <div class="q-progress-bar">
+            <div class="q-progress-fill" id="qProgressFill" style="width: 2.2%"></div>
+          </div>
+
+          <div class="q-type-label" id="qTypeLabel">單選題</div>
+          <div class="q-prompt" id="qPrompt">題目載入中...</div>
+          <div class="q-subhint hidden" id="qSubhint"></div>
+
+          <!-- Multiple Choice Container -->
+          <div id="mcContainer" class="options-list hidden"></div>
+
+          <!-- Reorder Tiles Container -->
+          <div id="reorderContainer" class="hidden">
+            <div class="sentence-slot" id="sentenceSlot">
+              <span class="slot-placeholder">點擊下方單字葉片，依序排成正確句子...</span>
+            </div>
+            <div class="word-bank" id="wordBank"></div>
+            <div style="display:flex; gap:10px;">
+              <button class="btn btn-secondary" id="clearSlotBtn" type="button">清除重排</button>
+              <button class="btn btn-primary" id="submitReorderBtn" type="button">送出答案</button>
+            </div>
+          </div>
+
+          <!-- Fill-in-the-blank Container -->
+          <div id="fillContainer" class="hidden">
+            <div class="fill-box">
+              <input type="text" class="fill-input" id="fillInput" placeholder="請輸入正確的英文單字或片語..." autocomplete="off" />
+              <button class="btn btn-primary" id="submitFillBtn" type="button">確認送出</button>
+            </div>
+          </div>
+
+          <!-- Immediate Feedback -->
+          <div class="feedback-box" id="feedbackBox">
+            <div class="feedback-title" id="feedbackTitle"></div>
+            <div class="feedback-ans" id="feedbackAns"></div>
+            <div class="feedback-exp" id="feedbackExp"></div>
+          </div>
+
+          <div class="action-row">
+            <button class="btn btn-primary hidden" id="nextBtn">下一題 ➜</button>
+          </div>
+        </section>
+
+        <!-- 3. Stage Checkpoint Screen (After Q15 and Q30) -->
+        <section id="checkpointScreen" class="checkpoint-view hidden">
+          <div class="checkpoint-banner" id="cpBanner">🌸 第一關通關！小芽成長報告</div>
+          <h2 id="cpTitle" style="font-size:1.6rem; color:#14532d; margin-bottom:6px;">小芽精靈當下成長模樣</h2>
+          <p id="cpSubtitle" style="color:#475569; font-size:0.95rem;">看看你收集到的陽光露水讓小精靈變成什麼可愛模樣了！</p>
+
+          <div class="checkpoint-svg" id="cpSvgContainer"></div>
+          <h3 id="cpCompanionName" style="font-size:1.38rem; color:#15803d; font-weight:900; margin-bottom:4px;"></h3>
+          <p id="cpCompanionDesc" style="color:#475569; max-width:480px; margin:0 auto; font-size:0.92rem;"></p>
+
+          <div class="summary-stats">
+            <div class="sum-item">
+              <div class="num" id="cpScore">0</div>
+              <div class="lbl">目前陽光露水</div>
+            </div>
+            <div class="sum-item">
+              <div class="num" id="cpAccuracy">0%</div>
+              <div class="lbl">目前答對率</div>
+            </div>
+            <div class="sum-item">
+              <div class="num" id="cpMaxStreak">0</div>
+              <div class="lbl">最高連勝花瓣</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="continueStageBtn">繼續前往下一關 ➜</button>
+        </section>
+
+        <!-- 4. Final Result Screen -->
+        <section id="resultScreen" class="result-view hidden">
+          <div class="checkpoint-banner">🌻 全 45 關森林探險大成功！</div>
+          <h2 id="finalPlayerTitle" style="font-size:1.65rem; color:#14532d; margin-bottom:4px;">隊長的專屬小芽精靈圖鑑</h2>
+          <p id="finalRankText" style="color:#0369a1; font-weight:800; font-size:1rem;"></p>
+
+          <div class="checkpoint-svg" id="finalSvgContainer"></div>
+          <h3 id="finalCompanionName" style="font-size:1.48rem; color:#15803d; font-weight:900; margin-bottom:6px;"></h3>
+          <p id="finalCompanionDesc" style="color:#334155; max-width:520px; margin:0 auto; font-size:0.95rem;"></p>
+
+          <div class="summary-stats">
+            <div class="sum-item">
+              <div class="num" id="finalScore">0</div>
+              <div class="lbl">最終陽光露水</div>
+            </div>
+            <div class="sum-item">
+              <div class="num" id="finalCorrectCount">0 / 45</div>
+              <div class="lbl">總答對題數</div>
+            </div>
+            <div class="sum-item">
+              <div class="num" id="finalMaxStreak">0</div>
+              <div class="lbl">最高連勝紀錄</div>
+            </div>
+          </div>
+
+          <button class="btn btn-primary" id="restartBtn">🌱 再玩一次培育更強探險隊</button>
+
+          <div class="review-section" id="reviewSection">
+            <h3>📖 段考錯題重點解析筆記</h3>
+            <div id="reviewList"></div>
+          </div>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <script>
+    // ==========================================
+    // 1. 5 CUTE PIKMIN-STYLE SPROUT EVOLUTIONS (SVG)
+    // ==========================================
+    const COMPANIONS = [
+      {
+        level: 1,
+        minScore: 0,
+        name: "LV.1 沉睡種子球 (Sleepy Seed)",
+        desc: "窩在紅陶花盆裡打瞌睡的小種子，累積 110 滴陽光露水就會探出頭發芽喔！",
+        svg: `
+          <svg viewBox="0 0 200 200" width="185" height="185">
+            <ellipse cx="100" cy="176" rx="48" ry="10" fill="rgba(22,163,74,0.18)"/>
+            <!-- Cute Terracotta Pot -->
+            <polygon points="62,126 138,126 128,172 72,172" fill="#ea580c" stroke="#9a3412" stroke-width="2.5"/>
+            <rect x="56" y="114" width="88" height="15" rx="6" fill="#f97316" stroke="#9a3412" stroke-width="2.5"/>
+            <!-- Soil Mound -->
+            <path d="M66 114 Q100 98 134 114 Z" fill="#78350f"/>
+            <!-- Cute Seed Peeking Out -->
+            <path d="M100 66 C122 66, 130 92, 126 112 L74 112 C70 92, 78 66, 100 66 Z" fill="#fef08a" stroke="#ca8a04" stroke-width="2.5"/>
+            <!-- Tiny Sprout Tip -->
+            <path d="M100 66 Q104 52 114 54 Q108 64 100 66 Z" fill="#4ade80" stroke="#15803d" stroke-width="1.5"/>
+            <!-- Sleeping Eyes & Blush -->
+            <path d="M84 94 Q89 99 94 94" fill="none" stroke="#713f12" stroke-width="2.5" stroke-linecap="round"/>
+            <path d="M106 94 Q111 99 116 94" fill="none" stroke="#713f12" stroke-width="2.5" stroke-linecap="round"/>
+            <circle cx="80" cy="101" r="4" fill="#fda4af" opacity="0.8"/>
+            <circle cx="120" cy="101" r="4" fill="#fda4af" opacity="0.8"/>
+            <text x="136" y="72" fill="#0284c7" font-size="14" font-weight="bold">zZ</text>
+          </svg>
+        `
+      },
+      {
+        level: 2,
+        minScore: 110,
+        name: "LV.2 嫩葉紅芽精靈 (Leaf Red Sprout)",
+        desc: "跳出花盆的元氣小紅芽！頭頂長出鮮綠嫩葉，累積 230 露水就會結出花苞！",
+        svg: `
+          <svg viewBox="0 0 200 200" width="185" height="185">
+            <ellipse cx="100" cy="176" rx="42" ry="9" fill="rgba(22,163,74,0.2)"/>
+            <!-- Stem & Leaf -->
+            <path d="M100 72 Q98 44 108 32" fill="none" stroke="#16a34a" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M108 32 Q136 22 142 40 Q124 48 108 32 Z" fill="#4ade80" stroke="#15803d" stroke-width="2"/>
+            <!-- Arms & Feet -->
+            <path d="M74 128 Q56 122 54 134" fill="none" stroke="#f43f5e" stroke-width="7" stroke-linecap="round"/>
+            <path d="M126 128 Q144 122 146 134" fill="none" stroke="#f43f5e" stroke-width="7" stroke-linecap="round"/>
+            <ellipse cx="86" cy="168" rx="11" ry="7" fill="#e11d48"/>
+            <ellipse cx="114" cy="168" rx="11" ry="7" fill="#e11d48"/>
+            <!-- Pear Body & Head -->
+            <ellipse cx="100" cy="138" rx="28" ry="30" fill="#fb7185" stroke="#e11d48" stroke-width="2.5"/>
+            <circle cx="100" cy="96" r="30" fill="#fb7185" stroke="#e11d48" stroke-width="2.5"/>
+            <!-- Big Cute Eyes & Pointy Nose -->
+            <circle cx="88" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="112" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="89" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="111" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="90" cy="92" r="1.5" fill="#fff"/>
+            <circle cx="112" cy="92" r="1.5" fill="#fff"/>
+            <polygon points="100,98 96,106 104,106" fill="#f43f5e" stroke="#be123c" stroke-width="1.5"/>
+            <path d="M93 111 Q100 116 107 111" fill="none" stroke="#881337" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+        `
+      },
+      {
+        level: 3,
+        minScore: 230,
+        name: "LV.3 花苞藍水精靈 (Bud Blue Sprout)",
+        desc: "頭頂結出粉白花苞的聰明藍精靈！最擅長理清「被動語態」與「直述語序」喔！",
+        svg: `
+          <svg viewBox="0 0 200 200" width="185" height="185">
+            <ellipse cx="100" cy="176" rx="44" ry="9" fill="rgba(14,165,233,0.22)"/>
+            <!-- Stem & Pink-White Flower Bud -->
+            <path d="M100 72 Q100 48 100 36" fill="none" stroke="#16a34a" stroke-width="4.5" stroke-linecap="round"/>
+            <path d="M100 42 Q86 38 88 28 Q96 34 100 42 Z" fill="#4ade80"/>
+            <path d="M100 42 Q114 38 112 28 Q104 34 100 42 Z" fill="#4ade80"/>
+            <path d="M100 14 C112 14, 114 34, 100 38 C86 34, 88 14, 100 14 Z" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+            <!-- Arms & Feet -->
+            <path d="M74 128 Q54 116 56 104" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
+            <path d="M126 128 Q144 134 146 144" fill="none" stroke="#38bdf8" stroke-width="7" stroke-linecap="round"/>
+            <ellipse cx="86" cy="168" rx="11" ry="7" fill="#0284c7"/>
+            <ellipse cx="114" cy="168" rx="11" ry="7" fill="#0284c7"/>
+            <!-- Body & Head -->
+            <ellipse cx="100" cy="138" rx="28" ry="30" fill="#38bdf8" stroke="#0284c7" stroke-width="2.5"/>
+            <circle cx="100" cy="96" r="30" fill="#38bdf8" stroke="#0284c7" stroke-width="2.5"/>
+            <!-- Cute Mouth & Eyes -->
+            <circle cx="88" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="112" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="89" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="111" cy="94" r="4" fill="#0f172a"/>
+            <ellipse cx="100" cy="108" rx="5" ry="4" fill="#0369a1"/>
+            <!-- Floating Water Drop -->
+            <path d="M52 76 C58 86, 58 94, 52 94 C46 94, 46 86, 52 76 Z" fill="#7dd3fc" stroke="#0284c7" stroke-width="1.5"/>
+          </svg>
+        `
+      },
+      {
+        level: 4,
+        minScore: 360,
+        name: "LV.4 盛開向日黃精靈 (Blooming Yellow)",
+        desc: "頭頂盛開白金小雛菊的開心黃精靈！大耳朵聽力滿分，身旁還跟著小紅芽跟班呢！",
+        svg: `
+          <svg viewBox="0 0 200 200" width="185" height="185">
+            <ellipse cx="95" cy="176" rx="52" ry="9" fill="rgba(234,179,8,0.24)"/>
+            <!-- Stem & Blooming Daisy Flower -->
+            <path d="M92 70 L92 36" fill="none" stroke="#16a34a" stroke-width="4.5" stroke-linecap="round"/>
+            <circle cx="92" cy="22" r="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <circle cx="92" cy="42" r="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <circle cx="82" cy="32" r="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <circle cx="102" cy="32" r="7" fill="#ffffff" stroke="#cbd5e1" stroke-width="1.5"/>
+            <circle cx="92" cy="32" r="6.5" fill="#facc15" stroke="#ca8a04" stroke-width="1.5"/>
+            <!-- Big Cute Yellow Ears -->
+            <polygon points="64,92 44,76 62,106" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+            <polygon points="120,92 140,76 122,106" fill="#facc15" stroke="#ca8a04" stroke-width="2"/>
+            <!-- Arms & Feet -->
+            <path d="M66 128 Q48 114 52 102" fill="none" stroke="#facc15" stroke-width="7" stroke-linecap="round"/>
+            <path d="M118 128 Q136 114 132 102" fill="none" stroke="#facc15" stroke-width="7" stroke-linecap="round"/>
+            <ellipse cx="78" cy="168" rx="11" ry="7" fill="#eab308"/>
+            <ellipse cx="106" cy="168" rx="11" ry="7" fill="#eab308"/>
+            <!-- Body & Head -->
+            <ellipse cx="92" cy="138" rx="28" ry="30" fill="#fde047" stroke="#ca8a04" stroke-width="2.5"/>
+            <circle cx="92" cy="96" r="30" fill="#fde047" stroke="#ca8a04" stroke-width="2.5"/>
+            <!-- Happy Eyes -->
+            <circle cx="80" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="104" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="81" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="103" cy="94" r="4" fill="#0f172a"/>
+            <path d="M85 108 Q92 115 99 108" fill="none" stroke="#854d0e" stroke-width="2.5" stroke-linecap="round"/>
+            <!-- Mini Red Sprout Sidekick -->
+            <g transform="translate(132, 118) scale(0.45)">
+              <path d="M50 30 Q68 20 72 34 Q58 40 50 30 Z" fill="#4ade80"/>
+              <ellipse cx="50" cy="95" rx="22" ry="24" fill="#fb7185"/>
+              <circle cx="50" cy="62" r="24" fill="#fb7185"/>
+              <circle cx="42" cy="60" r="5" fill="#fff"/><circle cx="42" cy="60" r="2.5" fill="#000"/>
+              <circle cx="58" cy="60" r="5" fill="#fff"/><circle cx="58" cy="60" r="2.5" fill="#000"/>
+            </g>
+          </svg>
+        `
+      },
+      {
+        level: 5,
+        minScore: 480,
+        name: "LV.5 彩虹花園大隊長 (Rainbow Squad Leader)",
+        desc: "最高榮耀！頭戴黃金花冠與綠葉披風，率領紅、藍、黃小芽精靈一起為你的段考應援！",
+        svg: `
+          <svg viewBox="0 0 220 200" width="200" height="185">
+            <ellipse cx="110" cy="178" rx="76" ry="11" fill="rgba(22,163,74,0.22)"/>
+            <!-- Rainbow Arc Behind -->
+            <path d="M32 135 A 78 78 0 0 1 188 135" fill="none" stroke="#fda4af" stroke-width="5" opacity="0.7"/>
+            <path d="M38 135 A 72 72 0 0 1 182 135" fill="none" stroke="#fde047" stroke-width="5" opacity="0.75"/>
+            <path d="M44 135 A 66 66 0 0 1 176 135" fill="none" stroke="#7dd3fc" stroke-width="5" opacity="0.7"/>
+
+            <!-- Left Mini Blue Sprout -->
+            <g transform="translate(26, 108) scale(0.55)">
+              <circle cx="50" cy="22" r="8" fill="#fbcfe8" stroke="#ec4899" stroke-width="2"/>
+              <ellipse cx="50" cy="95" rx="24" ry="26" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+              <circle cx="50" cy="60" r="26" fill="#38bdf8" stroke="#0284c7" stroke-width="2"/>
+              <circle cx="41" cy="58" r="6" fill="#fff"/><circle cx="41" cy="58" r="3" fill="#000"/>
+              <circle cx="59" cy="58" r="6" fill="#fff"/><circle cx="59" cy="58" r="3" fill="#000"/>
+            </g>
+
+            <!-- Right Mini Yellow Sprout -->
+            <g transform="translate(138, 108) scale(0.55)">
+              <circle cx="50" cy="22" r="9" fill="#fff" stroke="#eab308" stroke-width="3"/>
+              <ellipse cx="50" cy="95" rx="24" ry="26" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+              <circle cx="50" cy="60" r="26" fill="#fde047" stroke="#ca8a04" stroke-width="2"/>
+              <circle cx="41" cy="58" r="6" fill="#fff"/><circle cx="41" cy="58" r="3" fill="#000"/>
+              <circle cx="59" cy="58" r="6" fill="#fff"/><circle cx="59" cy="58" r="3" fill="#000"/>
+            </g>
+
+            <!-- Center Captain Red Sprout with Leaf Cape & Flower Crown -->
+            <path d="M78 122 L66 164 L154 164 L142 122 Z" fill="#22c55e" stroke="#15803d" stroke-width="2"/>
+            <ellipse cx="110" cy="140" rx="28" ry="30" fill="#fb7185" stroke="#e11d48" stroke-width="2.5"/>
+            <circle cx="110" cy="96" r="31" fill="#fb7185" stroke="#e11d48" stroke-width="2.5"/>
+            <!-- Flower Crown -->
+            <circle cx="90" cy="66" r="8" fill="#fef08a" stroke="#eab308" stroke-width="2"/>
+            <circle cx="110" cy="61" r="10" fill="#ffffff" stroke="#ec4899" stroke-width="2.5"/>
+            <circle cx="110" cy="61" r="4.5" fill="#facc15"/>
+            <circle cx="130" cy="66" r="8" fill="#fef08a" stroke="#eab308" stroke-width="2"/>
+            <!-- Sparkling Eyes -->
+            <circle cx="98" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="122" cy="94" r="7.5" fill="#ffffff" stroke="#1e293b" stroke-width="1.5"/>
+            <circle cx="99" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="121" cy="94" r="4" fill="#0f172a"/>
+            <circle cx="100" cy="92" r="1.8" fill="#fff"/>
+            <circle cx="122" cy="92" r="1.8" fill="#fff"/>
+            <polygon points="110,98 106,105 114,105" fill="#f43f5e"/>
+            <path d="M102 110 Q110 118 118 110" fill="none" stroke="#881337" stroke-width="2.5" stroke-linecap="round"/>
+          </svg>
+        `
+      }
+    ];
+
+    // ==========================================
+    // 2. 45 TIERED QUESTIONS (15 per Stage)
+    // ==========================================
+    const QUESTIONS = [
+      // ---------- STAGE 1: 陽光草地 (Q1 - Q15) ----------
+      {
+        stage: 1,
+        topic: "被動語態（現在簡單式）",
+        type: "mc",
+        prompt: "English ________ in many countries around the world.",
+        subhint: "提示：英文（English）是「被說」，主詞為單數，現在簡單式被動公式為 is + p.p.。",
+        options: ["speaks", "is spoken", "spoke", "was speaking"],
+        answer: 1,
+        explanation: "English 與 speak 為被動關係（英文被說），事實真理用現在簡單式被動：is + spoken。"
+      },
+      {
+        stage: 1,
+        topic: "被動語態（過去簡單式）",
+        type: "mc",
+        prompt: "The workers built a new bridge across the river. → A new bridge ________ across the river last year.",
+        subhint: "提示：last year 為過去時間，橋（a new bridge）是「被建造」的。",
+        options: ["built", "is built", "was built", "has built"],
+        answer: 2,
+        explanation: "last year 為過去時間，bridge 為單數名詞，過去簡單式被動為 was built。"
+      },
+      {
+        stage: 1,
+        topic: "間接問句（wh- 直述語序）",
+        type: "mc",
+        prompt: "Do you know where ________?",
+        subhint: "提示：間接問句的重點是「疑問詞 + 主詞 + 動詞」，不可使用疑問句倒裝！",
+        options: ["does Chloe live", "Chloe lives", "lives Chloe", "did Chloe lived"],
+        answer: 1,
+        explanation: "間接問句需改回直述句語序（主詞 + 動詞），第三人稱單數現在式動詞加 s，故選 Chloe lives。"
+      },
+      {
+        stage: 1,
+        topic: "Unit 3 核心單字（生活情境）",
+        type: "mc",
+        prompt: "Daniel took out his ________ from his pocket to pay for the meal.",
+        subhint: "提示：從口袋拿出來付餐費的物品（Unit 3 單字）。",
+        options: ["wallet", "seesaw", "pipe", "glue"],
+        answer: 0,
+        explanation: "wallet（錢包）符合「從口袋拿出來付餐費」的語意；seesaw 翹翹板、pipe 水管、glue 膠水。"
+      },
+      {
+        stage: 1,
+        topic: "間接問句（be 動詞語序重組）",
+        type: "reorder",
+        prompt: "請重組句子：告訴我啟動手機的喚醒字詞是什麼。",
+        subhint: "直接問句：What is the wake word? → 放入 Tell me 後方（Unit 4 課文句型）。",
+        words: ["Tell", "me", "what", "the", "wake", "word", "is."],
+        answer: "Tell me what the wake word is.",
+        explanation: "直接問句 What is the wake word? 改為間接問句時，is 必須移到主詞 the wake word 後面。"
+      },
+      {
+        stage: 1,
+        topic: "被動語態（過去分詞填空）",
+        type: "fill",
+        prompt: "This couch was ________ (design) by a famous designer.",
+        subhint: "提示：Unit 4 例句！沙發是「被設計」的（請填入 design 的過去分詞）。",
+        answer: ["designed"],
+        explanation: "過去簡單式被動語態公式為 was/were + 過去分詞（p.p.），design 為規則變化，加 ed 成 designed。"
+      },
+      {
+        stage: 1,
+        topic: "文法回鍋：授與動詞介系詞",
+        type: "mc",
+        prompt: "Can you get me the tool over there? = Can you get the tool ________ me?",
+        subhint: "提示：過去文法回鍋！get / buy / make 等「替某人準備」的授與動詞，物在人前要加哪個介系詞？",
+        options: ["to", "for", "with", "of"],
+        answer: 1,
+        explanation: "授與動詞中，buy, make, get, cook 搭配介系詞 for；give, send, show, lend 則搭配 to。"
+      },
+      {
+        stage: 1,
+        topic: "間接問句（wh- 疑問詞）",
+        type: "mc",
+        prompt: "Who is the man in the middle of the photo? → Could you tell me who ________?",
+        subhint: "提示：詢問照片中間那位男士是誰，注意單數 be 動詞位置。",
+        options: ["is the man", "the man is", "does the man", "the man was"],
+        answer: 1,
+        explanation: "直接問句為 Who is the man?，改為間接問句時主詞 the man 在前，is 在後。"
+      },
+      {
+        stage: 1,
+        topic: "Unit 4 核心單字（科技與生活）",
+        type: "mc",
+        prompt: "Be careful when you ________ files from the Internet, or your computer may get a virus.",
+        subhint: "提示：從網路上「下載」檔案（或 Unit 4 相反詞 upload 上傳）。",
+        options: ["upload", "download", "boil", "pray"],
+        answer: 1,
+        explanation: "download files（下載檔案）與 Unit 4 單字 upload（上傳）為相對概念；boil 煮沸、pray 祈禱。"
+      },
+      {
+        stage: 1,
+        topic: "被動語態（過去式複數主詞）",
+        type: "mc",
+        prompt: "Thousands of people ________ during the terrible attack.",
+        subhint: "提示：Unit 3 例句！主詞 Thousands of people 是複數，且為過去發生的事件。",
+        options: ["killed", "were killed", "was killed", "are killing"],
+        answer: 1,
+        explanation: "people 為複數集合名詞，在攻擊中「被奪去性命（were killed）」需用過去式複數被動。"
+      },
+      {
+        stage: 1,
+        topic: "間接問句（句子重組）",
+        type: "reorder",
+        prompt: "請重組句子：克蘿伊不知道她在哪裡弄丟了手機。",
+        subhint: "Unit 4 例句改寫：where + 主詞 + 過去式動詞。",
+        words: ["Chloe", "didn't", "know", "where", "she", "lost", "her", "cellphone."],
+        answer: "Chloe didn't know where she lost her cellphone.",
+        explanation: "間接問句不保留助動詞 did，直接以「疑問詞 where + 主詞 she + 過去式動詞 lost」連接。"
+      },
+      {
+        stage: 1,
+        topic: "文法回鍋：連綴動詞（look / smell / sound）",
+        type: "mc",
+        prompt: "I just made a pot of soup. It smells ________!",
+        subhint: "提示：過去文法回鍋！連綴動詞（smell 聞起來）後面要接形容詞，不可加 ly 副詞！",
+        options: ["great", "greatly", "well", "wonderfully"],
+        answer: 0,
+        explanation: "smell 為連綴動詞，後方需接形容詞作主詞補語，故選 great。"
+      },
+      {
+        stage: 1,
+        topic: "被動語態（主動改被動填空）",
+        type: "fill",
+        prompt: "Cindy's dad wrote the note. → The note ________ ________ by Cindy's dad.",
+        subhint: "提示：Unit 3 例句！請填入兩個字（過去式 be 動詞 + 過去分詞）。",
+        answer: ["was written"],
+        explanation: "原句 wrote 為過去式，主詞 The note 為單數，write 的過去分詞為 written。"
+      },
+      {
+        stage: 1,
+        topic: "間接問句（when 問句）",
+        type: "mc",
+        prompt: "I don't remember when ________.",
+        subhint: "提示：派對（the party）什麼時候開始（started）。",
+        options: ["did the party start", "the party started", "started the party", "was the party start"],
+        answer: 1,
+        explanation: "間接問句不可保留助動詞 did，需將動詞 start 直接改為過去式 started。"
+      },
+      {
+        stage: 1,
+        topic: "文法回鍋：虛主詞 It（It is + adj. + to V）",
+        type: "mc",
+        prompt: "Mr. Jones is a kind man. It's a pleasure ________ with him.",
+        subhint: "提示：Unit 3 例句 + 虛主詞 It 句型！It is + 名詞/形容詞 + to V。",
+        options: ["work", "to work", "worked", "works"],
+        answer: 1,
+        explanation: "虛主詞 It 句型「It is + a pleasure / adj. + to + 原形動詞」，真主詞為後方的不定詞片語 to work。"
+      },
+
+      // ---------- STAGE 2: 微風花叢 (Q16 - Q30) ----------
+      {
+        stage: 2,
+        topic: "被動語態（未來式 will be + p.p.）",
+        type: "mc",
+        prompt: "The new bridge ________ next month.",
+        subhint: "提示：next month 表示未來時間，橋將會「被啟用/打開」。",
+        options: ["will open", "will be opened", "is opened", "was opened"],
+        answer: 1,
+        explanation: "未來式被動語態結構為 will + be + p.p.，故選 will be opened。"
+      },
+      {
+        stage: 2,
+        topic: "間接問句（whether / if 是否）",
+        type: "mc",
+        prompt: "I'm not sure ________ Sophie will like my gift or not.",
+        subhint: "提示：Unit 4 核心例句！句尾出現了 or not，只能選哪一個字？",
+        options: ["if", "whether", "that", "what"],
+        answer: 1,
+        explanation: "由 Yes/No 問句改寫的間接問句用 whether 或 if（是否），但後方接 or not 時只能用 whether！"
+      },
+      {
+        stage: 2,
+        topic: "Unit 3 核心片語（及時 / 準時）",
+        type: "mc",
+        prompt: "I thought I was going to be late, but I made it to the movie theater just ________.",
+        subhint: "提示：Unit 3 對話片語「及時（在最後一刻趕上）」。",
+        options: ["in time", "in error", "anymore", "somewhere"],
+        answer: 0,
+        explanation: "in time（及時）符合句意「我以為會遲到，但最後還是及時趕到了電影院」。"
+      },
+      {
+        stage: 2,
+        topic: "被動語態（助動詞 must / should / can）",
+        type: "mc",
+        prompt: "Dirty clothes must ________ in the washing machine before dinner.",
+        subhint: "提示：助動詞 must 後面要接「原形 be 動詞 + 過去分詞」。",
+        options: ["put", "be put", "is put", "putting"],
+        answer: 1,
+        explanation: "含助動詞的被動語態公式：助動詞（must/can/should）+ be + p.p.，put 的三態同形（put-put-put）。"
+      },
+      {
+        stage: 2,
+        topic: "文法回鍋：現在完成式（has/have + p.p. + for + 一段時間）",
+        type: "mc",
+        prompt: "Sara is sad because her cat ________ missing for two days.",
+        subhint: "提示：Unit 3 例句 + 現在完成式回鍋！for two days（持續兩天）要搭配現在完成式。",
+        options: ["is", "was", "has been", "will be"],
+        answer: 2,
+        explanation: "「for + 一段時間（for two days）」表示從過去持續到現在的狀態，主詞 her cat 為單數，用 has been。"
+      },
+      {
+        stage: 2,
+        topic: "間接問句（if 與過去式時態一致）",
+        type: "mc",
+        prompt: "I called John to ask ________ he wanted to go to the movies with me.",
+        subhint: "提示：Unit 4 單字例句！詢問 John「是否」想一起去看電影。",
+        options: ["that", "if", "what", "which"],
+        answer: 1,
+        explanation: "原問句為 Do you want to go...?，改寫為間接問句時用 if 或 whether 引導，表示「是否」。"
+      },
+      {
+        stage: 2,
+        topic: "被動語態（現在完成式被動 has/have been + p.p.）",
+        type: "fill",
+        prompt: "All the files have already ________ ________ (upload) to the cloud.",
+        subhint: "提示：現在完成式被動語態「have been + 過去分詞」（兩個字，Unit 4 單字 upload）。",
+        answer: ["been uploaded"],
+        explanation: "現在完成式被動為 have/has + been + p.p.，upload 為規則動詞，過去分詞為 uploaded。"
+      },
+      {
+        stage: 2,
+        topic: "Unit 4 核心片語（使…振作起來）",
+        type: "mc",
+        prompt: "Tom failed the quiz and has been very quiet today. Let's buy some cookies to ________.",
+        subhint: "提示：Unit 3–4 單字片語「使他振作起來」，注意代名詞 him 要放在動詞與副詞中間！",
+        options: ["cheer up him", "cheer him up", "blow him up", "turn off him"],
+        answer: 1,
+        explanation: "cheer sb. up（使某人振作起來），當受詞為代名詞（him）時，必須放在 cheer 與 up 中間。"
+      },
+      {
+        stage: 2,
+        topic: "間接問句（句子重組：did 消失與動詞過去式）",
+        type: "reorder",
+        prompt: "請重組句子：丹尼斯很擔心，因為他不知道他把鑰匙掉在哪裡了。",
+        subhint: "直接問句：Where did he lose his keys?",
+        words: ["He", "doesn't", "know", "where", "he", "lost", "his", "keys."],
+        answer: "He doesn't know where he lost his keys.",
+        explanation: "去掉助動詞 did 後，原形動詞 lose 必須還原成過去式 lost，保持直述語序。"
+      },
+      {
+        stage: 2,
+        topic: "文法回鍋：從屬連接詞（although / because / if）",
+        type: "mc",
+        prompt: "The boss was angry at Leo ________ he made too many errors in his work.",
+        subhint: "提示：Unit 4 例句 + 連接詞回鍋！前面是結果（生氣），後面是原因（犯太多錯誤）。",
+        options: ["although", "because", "if", "before"],
+        answer: 1,
+        explanation: "後方說明老闆生氣的原因，用 because 連接；error 為 Unit 4 單字「錯誤」。"
+      },
+      {
+        stage: 2,
+        topic: "被動語態（情緒動詞過去分詞 + 介系詞）",
+        type: "mc",
+        prompt: "The balloon is ________ gas and floats high in the air.",
+        subhint: "提示：Unit 3 例句！be filled with 表示「充滿著…」。",
+        options: ["filling with", "filled with", "full with", "fill of"],
+        answer: 1,
+        explanation: "be filled with + 事物（= be full of），表示「充滿著…」。"
+      },
+      {
+        stage: 2,
+        topic: "間接問句（句子重組：Why 問句直述語序）",
+        type: "reorder",
+        prompt: "請重組句子：我不知道為什麼這個按鈕不能運作。",
+        subhint: "直接問句：Why doesn't this button work?（Unit 4 單字 button 按鈕）。",
+        words: ["I", "don't", "know", "why", "this", "button", "doesn't", "work."],
+        answer: "I don't know why this button doesn't work.",
+        explanation: "否定間接問句只需將助動詞 doesn't 移回主詞 this button 後面即可，維持直述語序。"
+      },
+      {
+        stage: 2,
+        topic: "被動語態（句型改寫填空）",
+        type: "fill",
+        prompt: "We should turn off the fan before leaving. → The fan should ________ ________ off before leaving.",
+        subhint: "提示：請填入兩個字（助動詞 should 後接原形 be + 過去分詞）。",
+        answer: ["be turned"],
+        explanation: "should 為助動詞，後方接原形 be，turn 的過去分詞為 turned。"
+      },
+      {
+        stage: 2,
+        topic: "文法回鍋：動名詞慣用語（through + V-ing / enjoy + V-ing）",
+        type: "mc",
+        prompt: "Molly gets slimmer through ________ every day.",
+        subhint: "提示：Unit 4 例句 + 介系詞後面動詞變化！through 是介系詞，後面動詞要加什麼？",
+        options: ["exercise", "to exercise", "exercising", "exercised"],
+        answer: 2,
+        explanation: "介系詞（through, by, in, on, about 等）後面若接動詞，必須改為動名詞（V-ing）。"
+      },
+      {
+        stage: 2,
+        topic: "間接問句（主句過去式時態一致）",
+        type: "mc",
+        prompt: "Mr. Taylor asked his secretary if he ________ any e-mails that morning.",
+        subhint: "提示：Unit 4 單字例句改寫！主要子句動詞 asked 為過去式，後方子句時態需配合過去式。",
+        options: ["gets", "got", "will get", "is getting"],
+        answer: 1,
+        explanation: "主要子句 asked 為過去式，間接問句中的動詞需保持時態一致，get 的過去式為 got。"
+      },
+
+      // ---------- STAGE 3: 彩虹樹洞 (Q31 - Q45) ----------
+      {
+        stage: 3,
+        topic: "被動語態（雙賓動詞 give/send/buy/write）",
+        type: "mc",
+        prompt: "A fruit basket ________ to me by my friend when I was in the hospital.",
+        subhint: "提示：Unit 3 例句改寫！當「事物（basket）」當被動句主詞時，「人（me）」前面要加介系詞 to！",
+        options: ["sent", "was sent", "was sending", "has sent"],
+        answer: 1,
+        explanation: "主動句 My friend sent me a fruit basket 改被動，若以物為主詞，則為 A fruit basket was sent to me。"
+      },
+      {
+        stage: 3,
+        topic: "間接問句（who / what 當主詞，語序不變！）",
+        type: "mc",
+        prompt: "Nobody knows what ________ to the missing puppy last night.",
+        subhint: "提示：what 本身就是「發生這件事的主詞（What happened?）」，語序完全不用動，且 happen 無被動！",
+        options: ["happened", "did happen", "was happened", "is happened"],
+        answer: 0,
+        explanation: "What happened? 中 what 即為主詞，改間接問句時維持 what happened 即可；且 happen 為不及物動詞，絕無被動語態！"
+      },
+      {
+        stage: 3,
+        topic: "Unit 3 核心動詞（三態變化陷阱 lie 躺）",
+        type: "mc",
+        prompt: "Nancy ________ on the grass and looked at the clouds in the sky yesterday.",
+        subhint: "提示：Unit 3 第 16 個單字特別註記！lie（躺）的三態是 lie – lay – lain（現在分詞 lying）！",
+        options: ["lied", "lay", "lain", "lying"],
+        answer: 1,
+        explanation: "Unit 3 單字表重點！lie 當「躺；臥」時，過去式為不規則變化 lay（lied 則是「說謊」的過去式）。"
+      },
+      {
+        stage: 3,
+        topic: "被動語態（現在進行式被動 is/are being + p.p.）",
+        type: "mc",
+        prompt: "Look! A new reading program ________ by the school right now.",
+        subhint: "提示：Look! 和 right now 表示「正在被執行/推動」，公式為 is being + p.p.。",
+        options: ["is planning", "is being planned", "was planned", "has planned"],
+        answer: 1,
+        explanation: "現在進行式被動語態為 am/is/are + being + p.p.，表示動作「正在被進行」。"
+      },
+      {
+        stage: 3,
+        topic: "文法回鍋：使役動詞（have + 人 + 原形 V vs. 改被動）",
+        type: "mc",
+        prompt: "Mrs. Miller had Henry ________ the answer on the blackboard.",
+        subhint: "提示：Unit 4 例句！使役動詞 had + 人（Henry）+ 原形動詞！",
+        options: ["write", "to write", "wrote", "written"],
+        answer: 0,
+        explanation: "主動使役動詞句型：have / make / let + 受詞（人）+ 原形動詞（V），故選 write。"
+      },
+      {
+        stage: 3,
+        topic: "被動語態（感官動詞改被動要還原 to！）",
+        type: "mc",
+        prompt: "Many students are often seen ________ for their parents at the gate after school.",
+        subhint: "提示：Unit 4 例句改寫！感官動詞主動句省略 to，改成被動語態（are seen）時，必須把 to 補回來！",
+        options: ["wait", "to wait", "waited", "are waiting"],
+        answer: 1,
+        explanation: "感官動詞（see/hear/watch）與使役動詞（make）改為被動語態時，原形動詞前必須補回 to（be seen to V）。"
+      },
+      {
+        stage: 3,
+        topic: "間接問句（不定詞片語簡化 wh- + to V）",
+        type: "mc",
+        prompt: "Lucy hasn't decided ________ to paste the pictures on her bedroom wall.",
+        subhint: "提示：Unit 3 單字 paste（黏貼）+ 疑問詞不定詞簡化（how she should paste = how to paste）。",
+        options: ["how", "what", "which", "whether"],
+        answer: 0,
+        explanation: "後方已有受詞 the pictures，詢問「如何」黏貼，用 how to paste（= how she should paste）。"
+      },
+      {
+        stage: 3,
+        topic: "被動語態（動詞片語不可漏掉介系詞）",
+        type: "fill",
+        prompt: "All the spelling mistakes in my writing ________ ________ (被更正) by my teacher.",
+        subhint: "提示：Unit 4 例句！correct（更正）的過去式被動（請填入兩個字：were + 過去分詞）。",
+        answer: ["were corrected"],
+        explanation: "主詞 All the spelling mistakes 為複數，過去式被動為 were corrected。"
+      },
+      {
+        stage: 3,
+        topic: "文法回鍋：形容詞比較級修飾與最高級",
+        type: "mc",
+        prompt: "With the help of the voice assistant, people can live ________ more easily and comfortably.",
+        subhint: "提示：Unit 4 例句 + 比較級修飾詞回鍋！能修飾比較級（more easily）的副詞是哪一個？",
+        options: ["very", "so", "much", "too"],
+        answer: 2,
+        explanation: "very, so, too 只能修飾原級；修飾比較級必須使用 much, even, a lot 或 far。"
+      },
+      {
+        stage: 3,
+        topic: "間接問句（介系詞後只能用 whether！）",
+        type: "mc",
+        prompt: "Whether we will go on a picnic depends on ________ the weather is fine tomorrow.",
+        subhint: "提示：空格前面有介系詞 on，此時引導名詞子句表示「是否」只能用哪一個字？",
+        options: ["if", "whether", "that", "what"],
+        answer: 1,
+        explanation: "在介系詞（如 on, about, in）後面引導名詞子句表示「是否」時，只能用 whether，不可用 if。"
+      },
+      {
+        stage: 3,
+        topic: "被動語態（句子重組：make 使役動詞改被動）",
+        type: "reorder",
+        prompt: "請重組句子：我們被要求在牆上按下那個按鈕。",
+        subhint: "注意 be made to V 結構（Unit 4 單字 button 按鈕）。",
+        words: ["We", "were", "made", "to", "push", "the", "button", "on", "the", "wall."],
+        answer: "We were made to push the button on the wall.",
+        explanation: "主動句 made us push... 改為被動語態時，原形動詞 push 前面必須還原加上 to：were made to push。"
+      },
+      {
+        stage: 3,
+        topic: "文法回鍋：if 條件句「主將從現」與 be filled with",
+        type: "mc",
+        prompt: "If the car ________ a tree, the gas tank may blow up.",
+        subhint: "提示：Unit 3 單字 blow up（爆炸）+ if 條件句「主將從現」原則（第三人稱單數現在式）！",
+        options: ["hit", "hits", "will hit", "is hit"],
+        answer: 1,
+        explanation: "if 引導條件子句用現在簡單式代替未來式，主詞 the car 為第三人稱單數，動詞 hit 需加 s 成 hits。"
+      },
+      {
+        stage: 3,
+        topic: "被動語態（過去進行式被動）",
+        type: "fill",
+        prompt: "When the police officer arrived, the room ________ ________ ________ (正在被檢查).",
+        subhint: "提示：過去某一時間點正在被進行的動作（三個字：was + being + checked）。",
+        answer: ["was being checked"],
+        explanation: "過去進行式被動語態結構為 was/were + being + 過去分詞。"
+      },
+      {
+        stage: 3,
+        topic: "間接問句（Do you think 插入句型）",
+        type: "mc",
+        prompt: "________ do you think ________ the badminton game tomorrow?",
+        subhint: "提示：Unit 3 單字 badminton（羽毛球）+ 疑問詞提前到 Do you think 前方！",
+        options: ["Who; will win", "Who; won", "Whom; will win", "What; win"],
+        answer: 0,
+        explanation: "遇到 do you think / do you believe 等動詞時，疑問詞（Who）必須移到最前面，後方維持直述語序 will win。"
+      },
+      {
+        stage: 3,
+        topic: "段考終極綜合大挑戰（間接問句 + 被動語態）",
+        type: "reorder",
+        prompt: "請重組句子：我想知道這座現代化的橋是什麼時候建造的。",
+        subhint: "結合間接問句（when + 主詞 + 動詞）與過去式被動語態（was built），搭配 Unit 4 單字 modern。",
+        words: ["I", "wonder", "when", "this", "modern", "bridge", "was", "built."],
+        answer: "I wonder when this modern bridge was built.",
+        explanation: "完美統整段考兩大核心文法！疑問詞 when + 主詞 this modern bridge + 過去式被動動詞 was built。"
+      }
+    ];
+
+    // ==========================================
+    // 3. GAME STATE & DOM ELEMENTS
+    // ==========================================
+    let currentIdx = 0;
+    let score = 0;
+    let streak = 0;
+    let maxStreak = 0;
+    let correctCount = 0;
+    let currentCompanionLevel = 1;
+    let playerName = "探險隊長";
+    let wrongLogs = [];
+    let selectedTileIndices = [];
+    let answeredCurrent = false;
+
+    const el = {
+      scoreDisplay: document.getElementById("scoreDisplay"),
+      streakDisplay: document.getElementById("streakDisplay"),
+      progressText: document.getElementById("progressText"),
+      companionStageTag: document.getElementById("companionStageTag"),
+      companionSvgContainer: document.getElementById("companionSvgContainer"),
+      companionName: document.getElementById("companionName"),
+      companionDesc: document.getElementById("companionDesc"),
+      nextEvoText: document.getElementById("nextEvoText"),
+      evoProgressFill: document.getElementById("evoProgressFill"),
+      evoTiersList: document.getElementById("evoTiersList"),
+
+      startScreen: document.getElementById("startScreen"),
+      quizScreen: document.getElementById("quizScreen"),
+      checkpointScreen: document.getElementById("checkpointScreen"),
+      resultScreen: document.getElementById("resultScreen"),
+
+      playerNameInput: document.getElementById("playerNameInput"),
+      startBtn: document.getElementById("startBtn"),
+
+      levelPill: document.getElementById("levelPill"),
+      topicTag: document.getElementById("topicTag"),
+      qCounter: document.getElementById("qCounter"),
+      qProgressFill: document.getElementById("qProgressFill"),
+      qTypeLabel: document.getElementById("qTypeLabel"),
+      qPrompt: document.getElementById("qPrompt"),
+      qSubhint: document.getElementById("qSubhint"),
+
+      mcContainer: document.getElementById("mcContainer"),
+      reorderContainer: document.getElementById("reorderContainer"),
+      sentenceSlot: document.getElementById("sentenceSlot"),
+      wordBank: document.getElementById("wordBank"),
+      clearSlotBtn: document.getElementById("clearSlotBtn"),
+      submitReorderBtn: document.getElementById("submitReorderBtn"),
+
+      fillContainer: document.getElementById("fillContainer"),
+      fillInput: document.getElementById("fillInput"),
+      submitFillBtn: document.getElementById("submitFillBtn"),
+
+      feedbackBox: document.getElementById("feedbackBox"),
+      feedbackTitle: document.getElementById("feedbackTitle"),
+      feedbackAns: document.getElementById("feedbackAns"),
+      feedbackExp: document.getElementById("feedbackExp"),
+      nextBtn: document.getElementById("nextBtn"),
+
+      cpBanner: document.getElementById("cpBanner"),
+      cpTitle: document.getElementById("cpTitle"),
+      cpSubtitle: document.getElementById("cpSubtitle"),
+      cpSvgContainer: document.getElementById("cpSvgContainer"),
+      cpCompanionName: document.getElementById("cpCompanionName"),
+      cpCompanionDesc: document.getElementById("cpCompanionDesc"),
+      cpScore: document.getElementById("cpScore"),
+      cpAccuracy: document.getElementById("cpAccuracy"),
+      cpMaxStreak: document.getElementById("cpMaxStreak"),
+      continueStageBtn: document.getElementById("continueStageBtn"),
+
+      finalPlayerTitle: document.getElementById("finalPlayerTitle"),
+      finalRankText: document.getElementById("finalRankText"),
+      finalSvgContainer: document.getElementById("finalSvgContainer"),
+      finalCompanionName: document.getElementById("finalCompanionName"),
+      finalCompanionDesc: document.getElementById("finalCompanionDesc"),
+      finalScore: document.getElementById("finalScore"),
+      finalCorrectCount: document.getElementById("finalCorrectCount"),
+      finalMaxStreak: document.getElementById("finalMaxStreak"),
+      restartBtn: document.getElementById("restartBtn"),
+      reviewSection: document.getElementById("reviewSection"),
+      reviewList: document.getElementById("reviewList")
+    };
+
+    // ==========================================
+    // 4. COMPANION GROWTH & SCORE LOGIC
+    // ==========================================
+    function getCompanionByScore(pts) {
+      let c = COMPANIONS[0];
+      for (let i = 0; i < COMPANIONS.length; i++) {
+        if (pts >= COMPANIONS[i].minScore) {
+          c = COMPANIONS[i];
+        }
+      }
+      return c;
+    }
+
+    function updateCompanionUI(animate = false) {
+      const c = getCompanionByScore(score);
+      const evolved = c.level > currentCompanionLevel;
+      currentCompanionLevel = c.level;
+
+      el.companionStageTag.textContent = `小芽成長度 LV.${c.level} / 5`;
+      el.companionSvgContainer.innerHTML = c.svg;
+      el.companionName.textContent = c.name;
+      el.companionDesc.textContent = c.desc;
+
+      if (animate && evolved) {
+        el.companionSvgContainer.classList.remove("evolve-pop");
+        void el.companionSvgContainer.offsetWidth;
+        el.companionSvgContainer.classList.add("evolve-pop");
+      }
+
+      const nextTier = COMPANIONS.find(item => item.level === c.level + 1);
+      if (nextTier) {
+        const prevMin = c.minScore;
+        const diff = nextTier.minScore - prevMin;
+        const currentInTier = score - prevMin;
+        const pct = Math.min(100, Math.round((currentInTier / diff) * 100));
+        el.evoProgressFill.style.width = `${pct}%`;
+        el.nextEvoText.textContent = `距離下次成長：還差 ${nextTier.minScore - score} 露水`;
+      } else {
+        el.evoProgressFill.style.width = "100%";
+        el.nextEvoText.textContent = "探險隊全員集結完畢！";
+      }
+
+      const spans = el.evoTiersList.querySelectorAll("span");
+      spans.forEach((sp, idx) => {
+        if (idx + 1 <= c.level) sp.classList.add("active");
+        else sp.classList.remove("active");
+      });
+    }
+
+    function updateHeaderStats() {
+      el.scoreDisplay.textContent = score;
+      el.streakDisplay.textContent = streak;
+      el.progressText.textContent = `${Math.min(currentIdx, QUESTIONS.length)} / ${QUESTIONS.length}`;
+    }
+
+    // ==========================================
+    // 5. RENDER QUESTION
+    // ==========================================
+    function renderQuestion() {
+      answeredCurrent = false;
+      const q = QUESTIONS[currentIdx];
+
+      el.feedbackBox.className = "feedback-box";
+      el.nextBtn.classList.add("hidden");
+      el.mcContainer.classList.add("hidden");
+      el.reorderContainer.classList.add("hidden");
+      el.fillContainer.classList.add("hidden");
+
+      if (q.stage === 1) {
+        el.levelPill.textContent = "🌱 第一關：陽光草地";
+        el.levelPill.className = "level-pill lvl-1";
+      } else if (q.stage === 2) {
+        el.levelPill.textContent = "🌷 第二關：微風花叢";
+        el.levelPill.className = "level-pill lvl-2";
+      } else {
+        el.levelPill.textContent = "🌻 第三關：彩虹樹洞";
+        el.levelPill.className = "level-pill lvl-3";
+      }
+
+      el.topicTag.textContent = q.topic;
+      el.qCounter.textContent = `第 ${currentIdx + 1} / ${QUESTIONS.length} 題`;
+      el.qProgressFill.style.width = `${((currentIdx + 1) / QUESTIONS.length) * 100}%`;
+      el.qPrompt.textContent = q.prompt;
+
+      if (q.subhint) {
+        el.qSubhint.textContent = q.subhint;
+        el.qSubhint.classList.remove("hidden");
+      } else {
+        el.qSubhint.classList.add("hidden");
+      }
+
+      if (q.type === "mc") {
+        el.qTypeLabel.textContent = "🌼 單選題（點擊正確選項）";
+        renderMC(q);
+      } else if (q.type === "reorder") {
+        el.qTypeLabel.textContent = "🍃 句子重組（依序點擊單字葉片）";
+        renderReorder(q);
+      } else if (q.type === "fill") {
+        el.qTypeLabel.textContent = "✏️ 語法填空（輸入正確英文）";
+        renderFill(q);
+      }
+    }
+
+    function renderMC(q) {
+      el.mcContainer.innerHTML = "";
+      el.mcContainer.classList.remove("hidden");
+      const letters = ["A", "B", "C", "D"];
+
+      q.options.forEach((optText, idx) => {
+        const btn = document.createElement("button");
+        btn.className = "option-btn";
+        btn.innerHTML = `<span class="option-letter">${letters[idx]}</span><span>${optText}</span>`;
+        btn.addEventListener("click", () => handleMCSubmit(idx));
+        el.mcContainer.appendChild(btn);
+      });
+    }
+
+    function handleMCSubmit(selectedIdx) {
+      if (answeredCurrent) return;
+      answeredCurrent = true;
+
+      const q = QUESTIONS[currentIdx];
+      const buttons = el.mcContainer.querySelectorAll(".option-btn");
+      buttons.forEach((btn, idx) => {
+        btn.disabled = true;
+        if (idx === q.answer) btn.classList.add("correct");
+        if (idx === selectedIdx && selectedIdx !== q.answer) btn.classList.add("wrong");
+      });
+
+      const isCorrect = selectedIdx === q.answer;
+      finalizeAnswer(isCorrect, q.options[q.answer]);
+    }
+
+    let shuffledWords = [];
+    function renderReorder(q) {
+      el.reorderContainer.classList.remove("hidden");
+      selectedTileIndices = [];
+      shuffledWords = [...q.words].sort(() => Math.random() - 0.5);
+      if (shuffledWords.join(" ") === q.answer && shuffledWords.length > 1) {
+        [shuffledWords[0], shuffledWords[1]] = [shuffledWords[1], shuffledWords[0]];
+      }
+      drawReorderUI();
+    }
+
+    function drawReorderUI() {
+      el.sentenceSlot.innerHTML = "";
+      if (selectedTileIndices.length === 0) {
+        el.sentenceSlot.classList.remove("has-words");
+        el.sentenceSlot.innerHTML = `<span class="slot-placeholder">點擊下方單字葉片，依序排成正確句子...</span>`;
+      } else {
+        el.sentenceSlot.classList.add("has-words");
+        selectedTileIndices.forEach((wordIdx, posInSlot) => {
+          const tile = document.createElement("button");
+          tile.type = "button";
+          tile.className = "word-tile in-slot";
+          tile.textContent = shuffledWords[wordIdx];
+          if (!answeredCurrent) {
+            tile.addEventListener("click", () => {
+              selectedTileIndices.splice(posInSlot, 1);
+              drawReorderUI();
+            });
+          }
+          el.sentenceSlot.appendChild(tile);
+        });
+      }
+
+      el.wordBank.innerHTML = "";
+      shuffledWords.forEach((word, idx) => {
+        const tile = document.createElement("button");
+        tile.type = "button";
+        const isUsed = selectedTileIndices.includes(idx);
+        tile.className = `word-tile ${isUsed ? "used" : ""}`;
+        tile.textContent = word;
+        tile.disabled = isUsed || answeredCurrent;
+        tile.addEventListener("click", () => {
+          selectedTileIndices.push(idx);
+          drawReorderUI();
+        });
+        el.wordBank.appendChild(tile);
+      });
+
+      el.clearSlotBtn.disabled = answeredCurrent;
+      el.submitReorderBtn.disabled = answeredCurrent || selectedTileIndices.length === 0;
+    }
+
+    el.clearSlotBtn.addEventListener("click", () => {
+      if (answeredCurrent) return;
+      selectedTileIndices = [];
+      drawReorderUI();
+    });
+
+    el.submitReorderBtn.addEventListener("click", () => {
+      if (answeredCurrent || selectedTileIndices.length === 0) return;
+      answeredCurrent = true;
+      const q = QUESTIONS[currentIdx];
+      const userSentence = selectedTileIndices.map(i => shuffledWords[i]).join(" ");
+      drawReorderUI();
+      const isCorrect = userSentence.trim() === q.answer.trim();
+      finalizeAnswer(isCorrect, q.answer);
+    });
+
+    function renderFill(q) {
+      el.fillContainer.classList.remove("hidden");
+      el.fillInput.value = "";
+      el.fillInput.disabled = false;
+      el.submitFillBtn.disabled = false;
+      setTimeout(() => el.fillInput.focus(), 50);
+    }
+
+    function handleFillSubmit() {
+      if (answeredCurrent) return;
+      const val = el.fillInput.value.trim();
+      if (!val) return;
+      answeredCurrent = true;
+      el.fillInput.disabled = true;
+      el.submitFillBtn.disabled = true;
+
+      const q = QUESTIONS[currentIdx];
+      const normalizedUser = val.toLowerCase().replace(/\s+/g, " ");
+      const isCorrect = q.answer.some(ans => ans.toLowerCase() === normalizedUser);
+      finalizeAnswer(isCorrect, q.answer[0]);
+    }
+
+    el.submitFillBtn.addEventListener("click", handleFillSubmit);
+    el.fillInput.addEventListener("keydown", (e) => {
+      if (e.key === "Enter") handleFillSubmit();
+    });
+
+    // ==========================================
+    // 6. ANSWER EVALUATION & FEEDBACK
+    // ==========================================
+    function finalizeAnswer(isCorrect, correctAnswerText) {
+      const q = QUESTIONS[currentIdx];
+      const prevLevel = currentCompanionLevel;
+
+      if (isCorrect) {
+        correctCount++;
+        streak++;
+        if (streak > maxStreak) maxStreak = streak;
+        const basePoints = q.stage === 1 ? 10 : q.stage === 2 ? 12 : 14;
+        const streakBonus = streak >= 3 ? 3 : 0;
+        const earned = basePoints + streakBonus;
+        score += earned;
+
+        el.feedbackBox.className = "feedback-box show ok";
+        el.feedbackTitle.textContent = streak >= 3
+          ? `🌞 答對了！收集到 +${earned} 滴陽光露水（含連勝獎勵 +3 🌸）`
+          : `🌞 答對了！收集到 +${earned} 滴陽光露水`;
+      } else {
+        streak = 0;
+        wrongLogs.push({
+          number: currentIdx + 1,
+          topic: q.topic,
+          prompt: q.prompt,
+          correctAnswer: correctAnswerText,
+          explanation: q.explanation
+        });
+
+        el.feedbackBox.className = "feedback-box show bad";
+        el.feedbackTitle.textContent = "🌧️ 差一點點！小芽幫你記下這個重點囉";
+      }
+
+      el.feedbackAns.textContent = `正確答案：${correctAnswerText}`;
+      el.feedbackExp.textContent = `💡 解析：${q.explanation}`;
+
+      updateCompanionUI(true);
+      const newLevel = currentCompanionLevel;
+      if (newLevel > prevLevel) {
+        el.feedbackTitle.textContent += ` ✨ 小芽成長為【${getCompanionByScore(score).name}】！`;
+      }
+
+      el.progressText.textContent = `${currentIdx + 1} / ${QUESTIONS.length}`;
+      el.scoreDisplay.textContent = score;
+      el.streakDisplay.textContent = streak;
+
+      el.nextBtn.textContent =
+        currentIdx === 14 ? "查看第一關小芽成長報告 🌸" :
+        currentIdx === 29 ? "查看第二關小芽成長報告 🌸" :
+        currentIdx === QUESTIONS.length - 1 ? "查看最終小芽探險隊圖鑑 🏆" :
+        "下一題 ➜";
+      el.nextBtn.classList.remove("hidden");
+    }
+
+    // ==========================================
+    // 7. NAVIGATION & CHECKPOINTS
+    // ==========================================
+    el.startBtn.addEventListener("click", () => {
+      const inputName = el.playerNameInput.value.trim();
+      if (inputName) playerName = inputName;
+      el.startScreen.classList.add("hidden");
+      el.quizScreen.classList.remove("hidden");
+      currentIdx = 0;
+      score = 0;
+      streak = 0;
+      maxStreak = 0;
+      correctCount = 0;
+      wrongLogs = [];
+      currentCompanionLevel = 1;
+      updateHeaderStats();
+      updateCompanionUI(false);
+      renderQuestion();
+    });
+
+    el.nextBtn.addEventListener("click", () => {
+      if (currentIdx === 14) {
+        showCheckpoint(1);
+        return;
+      }
+      if (currentIdx === 29) {
+        showCheckpoint(2);
+        return;
+      }
+      if (currentIdx === QUESTIONS.length - 1) {
+        showFinalResult();
+        return;
+      }
+
+      currentIdx++;
+      renderQuestion();
+    });
+
+    function showCheckpoint(completedStage) {
+      el.quizScreen.classList.add("hidden");
+      el.checkpointScreen.classList.remove("hidden");
+
+      const c = getCompanionByScore(score);
+      const answeredSoFar = completedStage * 15;
+      const acc = Math.round((correctCount / answeredSoFar) * 100);
+
+      el.cpBanner.textContent = `🌸 第 ${completedStage} 關通關！小芽成長報告`;
+      el.cpTitle.textContent = `${playerName} 的小芽精靈目前模樣`;
+      el.cpSvgContainer.innerHTML = c.svg;
+      el.cpCompanionName.textContent = c.name;
+      el.cpCompanionDesc.textContent = c.desc;
+      el.cpScore.textContent = score;
+      el.cpAccuracy.textContent = `${acc}%`;
+      el.cpMaxStreak.textContent = maxStreak;
+
+      el.continueStageBtn.textContent =
+        completedStage === 1 ? "前往第二關：微風花叢 ➜" : "前往第三關：彩虹樹洞 ➜";
+    }
+
+    el.continueStageBtn.addEventListener("click", () => {
+      el.checkpointScreen.classList.add("hidden");
+      el.quizScreen.classList.remove("hidden");
+      currentIdx++;
+      renderQuestion();
+    });
+
+    function showFinalResult() {
+      el.quizScreen.classList.add("hidden");
+      el.resultScreen.classList.remove("hidden");
+
+      const c = getCompanionByScore(score);
+      el.finalPlayerTitle.textContent = `${playerName} 的森林小芽精靈圖鑑`;
+      el.finalSvgContainer.innerHTML = c.svg;
+      el.finalCompanionName.textContent = c.name;
+      el.finalCompanionDesc.textContent = c.desc;
+      el.finalScore.textContent = score;
+      el.finalCorrectCount.textContent = `${correctCount} / ${QUESTIONS.length}`;
+      el.finalMaxStreak.textContent = maxStreak;
+
+      let rankMsg = "";
+      if (c.level === 5) rankMsg = "🌟 彩虹傳說隊長！Unit 3–4 文法與單字已經全部開花結果啦！";
+      else if (c.level === 4) rankMsg = "🌻 向日菁英隊長！已經掌握絕大多數段考高難度變化題！";
+      else if (c.level === 3) rankMsg = "🌷 花苞進階隊長！把下方錯題筆記複習一遍就能衝刺滿分！";
+      else rankMsg = "🌱 萌芽潛力隊長！多澆幾次陽光露水就能召喚整支小精靈探險隊喔！";
+      el.finalRankText.textContent = rankMsg;
+
+      el.reviewList.innerHTML = "";
+      if (wrongLogs.length === 0) {
+        el.reviewList.innerHTML = `<div class="review-item" style="border-color:#86efac; border-left-color:#22c55e;">太厲害啦！45 題全對，段考準備完全制霸！</div>`;
+      } else {
+        wrongLogs.forEach(item => {
+          const div = document.createElement("div");
+          div.className = "review-item";
+          div.innerHTML = `
+            <div class="r-q">第 ${item.number} 題【${item.topic}】：${item.prompt}</div>
+            <div class="r-a">✔ 正確答案：${item.correctAnswer}</div>
+            <div class="r-e">💡 ${item.explanation}</div>
+          `;
+          el.reviewList.appendChild(div);
+        });
+      }
+    }
+
+    el.restartBtn.addEventListener("click", () => {
+      el.resultScreen.classList.add("hidden");
+      el.startScreen.classList.remove("hidden");
+      currentIdx = 0;
+      score = 0;
+      streak = 0;
+      updateHeaderStats();
+      updateCompanionUI(false);
+    });
+
+    // Init Sidebar Companion on Load
+    updateCompanionUI(false);
+  </script>
+</body>
+</html>
